@@ -1,0 +1,20 @@
+// Variables
+$primary-color: #2f7c58;
+$white: #fff;
+$form-width: 450px;
+$form-height: 650px;
+
+// Mixins para media queries
+@mixin mobile {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin small-mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+// Resto del código CSS convertido a SCSS

@@ -1,0 +1,139 @@
+<!-- * esto es un apartado de prueba -->
+<!--//<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>prueba</title>
+    <link rel="stylesheet" href="/visual/css/prueba.css" />
+  </head>
+  <body>
+    <button id="ver-resumen">ver resumen</button>
+    <div id="resumen"></div>
+
+    <form id="datos-envio"></form>
+
+    <script>
+      let boton = document.getElementById("ver-resumen");
+
+      boton.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        let titulo = document.createElement("h1");
+
+        titulo.innerText = "resumen de envío";
+        
+        let resumen = document.getElementById("resumen");
+
+        resumen.appendChild(titulo);
+
+        let num_Pedido = document.createElement("p");
+
+        num_Pedido.innerText = "12345";
+
+        resumen.appendChild(num_Pedido);
+
+        let direccion = document.createElement("p");
+
+        direccion.innerText = "Coquimbo 2564";
+
+        resumen.appendChild(direccion);
+        
+
+      });
+    </script>
+  </body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de Envío</title>
+    <link rel="stylesheet" href="/visual/css/prueba.css" />
+  </head>
+  <body>
+    <!--<form id="formulario-envio">
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre">
+        <p class="error" id="error-nombre"></p>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono">
+        <p class="error" id="error-telefono"></p>
+
+        <label for="metodo-envio">Método de envío:</label>
+        <select id="metodo-envio" name="metodo-envio">
+            <option value="">Seleccione un método de envío</option>
+            <option value="normal">Normal</option>
+            <option value="express">Express</option>
+        </select>
+        <p class="error" id="error-metodo"></p>
+
+        <input type="submit" value="Guardar información">
+    </form>
+
+    <div id="resumen"></div>
+
+    <script>
+        const formulario = document.getElementById("formulario-envio");
+
+        formulario.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Limpiar errores previos
+            const errores = document.querySelectorAll(".error");
+            errores.forEach(error => error.innerText = "");
+
+            let valido = true;
+
+            // Obtener valores
+            const nombre = document.getElementById("nombre").value;
+            const telefono = document.getElementById("telefono").value;
+            const metodoEnvio = document.getElementById("metodo-envio").value;
+
+            // Validaciones
+            if (!nombre.trim()) {
+                document.getElementById("error-nombre").innerText = "El nombre es obligatorio";
+                valido = false;
+            }
+
+            if (!telefono.trim()) {
+                document.getElementById("error-telefono").innerText = "El teléfono es obligatorio";
+                valido = false;
+            }
+
+            if (!metodoEnvio) {
+                document.getElementById("error-metodo").innerText = "El método de envío es obligatorio";
+                valido = false;
+            }
+
+            // Si todo es válido, mostrar resumen
+            if (valido) {
+                const resumen = document.getElementById("resumen");
+                resumen.innerHTML = `
+                    <h2>Resumen del envío</h2>
+                    <p><strong>Nombre:</strong> ${nombre}</p>
+                    <p><strong>Teléfono:</strong> ${telefono}</p>
+                    <p><strong>Método de envío:</strong> ${metodoEnvio}</p>
+                `;
+            }
+        });
+    </script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
