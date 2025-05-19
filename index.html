@@ -1,32 +1,152 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio Cósmico</title>
-    <link rel="stylesheet" href="/visual/css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      TSAEC - Transportes Sustentables Alternativas Ecológicas para Calama
+    </title>
+    <link rel="stylesheet" href="/visual/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="ocean-overlay"></div>
 
-    <nav>
-        <a href="html/explorar.html">explorar</a>
-        <a href="/html/cuenta.html">cuenta</a>
-        <a href="/html/prueba.html">prueba</a>
-    </nav>
+    <header class="header-wave">
+      <nav class="main-nav">
+        <div class="logo">TSAEC</div>
+        <ul class="nav-links">
+          <li>
+            <a href="/index.html" class="active"
+              ><i class="fas fa-home"></i> Inicio</a
+            >
+          </li>
+          <li>
+            <a href="/html/explorar.html"
+              ><i class="fas fa-compass"></i> Explorar</a
+            >
+          </li>
+          <li>
+            <a href="/html/equipo.html"><i class="fas fa-users"></i> Equipo</a>
+          </li>
+          <li>
+            <a href="/html/acerca.html"
+              ><i class="fas fa-info-circle"></i> Acerca</a
+            >
+          </li>
+          <li>
+            <a href="/html/comentarios.html"
+              ><i class="fas fa-comments"></i> Comentarios</a
+            >
+          </li>
+          <li>
+            <a href="/html/cuenta.html"><i class="fas fa-user"></i> Cuenta</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-    <div class="content">
+    <main class="container">
+      <section class="hero-section glass-card">
         <h1>Bienvenido a TSAEC</h1>
-        <div class="button-container">
-            <button class="button">
-                <img src="/visual/images/Recurso2.png" alt="mundo">
-                <span>Explorar</span>
-            </button>
-            <button class="button">
-                <img src="/visual/images/grupo2.png" alt="grupo">
-                <span>Acerca de</span>
-            </button>
-        </div>
-    </div>
+        <p class="subtitle">
+          Transportes Sustentables Alternativas Ecológicas para Calama
+        </p>
+        <p class="description">
+          Transformando la movilidad de nuestra ciudad hacia un futuro más verde
+          y sustentable
+        </p>
+      </section>
 
-</body>
+      <section class="features-section">
+        <div class="feature-card glass-card">
+          <i class="fas fa-leaf feature-icon"></i>
+          <h2>Movilidad Sustentable</h2>
+          <p>Descubre alternativas ecológicas para moverte por Calama</p>
+          <a href="html/explorar.html" class="cta-button">Explorar Opciones</a>
+        </div>
+
+        <div class="feature-card glass-card">
+          <i class="fas fa-users feature-icon"></i>
+          <h2>Únete al Cambio</h2>
+          <p>Sé parte de la transformación hacia una ciudad más limpia</p>
+          <a href="html/cuenta.html" class="cta-button">Crear Cuenta</a>
+        </div>
+
+        <div class="feature-card glass-card">
+          <i class="fas fa-seedling feature-icon"></i>
+          <h2>Nuestro Proyecto</h2>
+          <p>Conoce más sobre nuestra misión y visión</p>
+          <a href="html/acerca.html" class="cta-button">Saber Más</a>
+        </div>
+
+        <div class="feature-card glass-card">
+          <i class="fas fa-people-group feature-icon"></i>
+          <h2>Equipo</h2>
+          <p>Conoce a las personas detrás de TSAEC</p>
+          <a href="html/equipo.html" class="cta-button">Ver Equipo</a>
+        </div>
+      </section>
+
+      <section class="impact-section glass-card">
+        <h2>Nuestro Impacto</h2>
+        <div class="impact-stats">
+          <div class="stat">
+            <i class="fas fa-bicycle"></i>
+            <h3>30%</h3>
+            <p>Reducción de emisiones</p>
+          </div>
+          <div class="stat">
+            <i class="fas fa-users"></i>
+            <p>+1000</p>
+            <p>Usuarios activos</p>
+          </div>
+          <div class="stat">
+            <i class="fas fa-leaf"></i>
+            <p>50%</p>
+            <p>Menos contaminación</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="glass-card">
+        <h2><i class="fas fa-user-plus"></i> Registros</h2>
+        <p id="register-counter">Próximamente: contador de registros activos</p>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="social-links">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p>&copy; 2025 TSAEC. Todos los derechos reservados.</p>
+      <!-- Contador de visitas personalizado -->
+      <div class="visit-counter glass-card">
+        <i class="fas fa-eye"></i>
+        <div class="counter-container">
+          <span class="counter-label">Visitas</span>
+          <span class="counter-number" id="visitCount">0</span>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Contador de visitas
+      const counterContainer = document.querySelector("#visitCount");
+      let visitCount = localStorage.getItem("page_view");
+
+      if (visitCount) {
+        visitCount = Number(visitCount) + 1;
+        localStorage.setItem("page_view", visitCount);
+      } else {
+        visitCount = 1;
+        localStorage.setItem("page_view", 1);
+      }
+      counterContainer.innerHTML = visitCount;
+    </script>
+  </body>
 </html>
