@@ -1,0 +1,238 @@
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: ghostwhite;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #006400;
+    padding: 15px;
+    color: white;
+}
+
+.head {
+    background-color: #004400;
+    text-align: center;
+    padding: 50px;
+    color: white;
+}
+
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.icon {
+    width: 80px;
+    height: 80px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* .hero {
+    text-align: center;
+    padding: 50px;
+   
+} */
+
+
+
+/* .hero p {
+    font-size: 18px;
+    color: #004400;
+} */
+
+.buttons button {
+    background-color: white;
+    color:#004400;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.benefits {
+    display: inline-flex;
+    justify-content: center;
+    gap: 10px;
+    /* height: 400px;
+    width: 800px; */
+    padding: 40px;
+    text-align: start;
+    font-size: x-small;
+
+}
+
+.benefits h2 {
+    font-size: 28px;
+    color: #004400;
+}
+
+.benefit {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.a { background-color: #c8e6c9;}
+.b {background-color: rgb(191, 191, 231);}
+.c {background-color: rgb(201, 141, 188);}
+
+.benefit h3 {
+    font-size: 22px;
+    color: black;
+}
+
+.benefit p {
+    font-size: 16px;
+    color: black;
+}
+
+.impacts {
+    display: inline-flex;
+    justify-content: center;
+    gap: 10px;
+    /* height: 400px;
+    width: 800px; */
+    padding: 40px;
+    text-align: start;
+    font-size: 16px;
+} 
+.impacts h2 {
+    font-size: 28px;
+    color: #004400;
+    text-align: center;
+}
+.impact {
+     margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+}
+.A { background-color: #8cb6df;}
+.B {background-color: rgb(249, 255, 168);}
+.C {background-color: rgb(167, 238, 176);} 
+
+
+/* .impact-item h3 {
+    font-size: 22px;
+    color: #006400;
+}
+
+.impact-item p {
+    font-size: 16px;
+    color: #333333;
+} */
+.sustainable-options {
+    padding: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    color: white;
+    
+}
+
+.sustainable-options h2 {
+    font-size: 28px;
+    color: #004400;
+} 
+
+.option {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+.option h3 {
+    font-size: 22px;
+    color: #006400;
+}
+
+.option p {
+    font-size: 16px;
+    color: #004400;
+}
+/* .opciones {
+    background-color: ghostwhite;
+} */
+
+/* .hero {
+    padding: 40px;
+} */
+
+.factors {
+    display:flex;
+    justify-content: center;
+    gap: 25px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.factor {
+    padding: 20px;
+    width: 200px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color:rgb(206, 250, 177);
+    color: black;
+}
+
+.statistics {
+    display:flex;
+    justify-content: center;
+    gap: 25px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    
+}
+.statistics2 {
+    display:flex;
+  
+    justify-content: center;
+    gap: 25px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    
+} 
+
+.stat {
+    padding: 20px;
+    width: 200px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.green { background: #3CB371; color: white; }
+.blue { background: #4682B4; color: white; }
+.yellow { background: #FFD700; color: white; }
+.purple { background: #9370DB; color: white; }
+
+footer {
+    height: 60px;
+    text-align: center;
+    padding: 80px;
+    font-family: Arial, sans-serif;
+    background-color: #006400;
+    color: white;
+}

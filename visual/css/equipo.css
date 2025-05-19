@@ -1,0 +1,309 @@
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            /*background: linear-gradient(135deg, #F3AE5B 0%, #F3864C 50%, #F3864C 51%, #F3AE5B 100%);*/
+            margin: 0;
+            font-family: sans-serif;
+            background-image: url(/visual/images/background-collab.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Logo */
+        .logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .logo h1 {
+            color: white;
+            font-size: 3rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        /* Equipo Section */
+        .team-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        .team-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+            font-size: 2.2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .team-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #f97794, #623aa2);
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 1100px;
+        }
+        
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .team-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+            backdrop-filter: blur(8px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: floatUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 36px rgba(31, 38, 135, 0.15);
+        }
+        
+        .team-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+        
+        .team-card:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+        
+        .team-card:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+        
+        .team-card:nth-child(4) {
+            animation-delay: 0.7s;
+        }
+        
+        .member-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .member-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .member-role {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        
+        .member-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        /* Olas Animación */
+        .wave-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 35vh;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: center bottom;
+        }
+        
+        .wave-1 {
+            fill: url(#gradient1);
+            opacity: 0.8;
+            height: 50%;
+            animation: wave1 14s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+        }
+        
+        .wave-2 {
+            fill: url(#gradient2);
+            opacity: 0.6;
+            height: 60%;
+            animation: wave2 16s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+        }
+        
+        .wave-3 {
+            fill: url(#gradient3);
+            opacity: 0.4;
+            height: 70%;
+            animation: wave3 18s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+        }
+        
+        /* Keyframes para olas - Sin desplazamiento horizontal */
+        @keyframes wave1 {
+            0% {
+                transform: translateY(0) scaleY(1);
+            }
+            25% {
+                transform: translateY(5px) scaleY(0.95);
+            }
+            50% {
+                transform: translateY(0) scaleY(1);
+            }
+            75% {
+                transform: translateY(5px) scaleY(1.05);
+            }
+            90% {
+                transform: translateY(0) scaleY(1);
+            }
+            /* Efecto de "salto" */
+            91% {
+                transform: translateY(3px) scaleY(0.98);
+            }
+            100% {
+                transform: translateY(0) scaleY(1);
+            }
+        }
+        
+        @keyframes wave2 {
+            0% {
+                transform: translateY(0) scaleY(1);
+            }
+            30% {
+                transform: translateY(8px) scaleY(0.9);
+            }
+            60% {
+                transform: translateY(0) scaleY(1.05);
+            }
+            /* Efecto de "salto" */
+            85% {
+                transform: translateY(3px) scaleY(0.95);
+            }
+            86% {
+                transform: translateY(5px) scaleY(1.02);
+            }
+            100% {
+                transform: translateY(0) scaleY(1);
+            }
+        }
+        
+        @keyframes wave3 {
+            0% {
+                transform: translateY(0) scaleY(1);
+            }
+            40% {
+                transform: translateY(5px) scaleY(1.05);
+            }
+            70% {
+                transform: translateY(0) scaleY(0.95);
+            }
+            /* Efecto de "salto" */
+            80% {
+                transform: translateY(3px) scaleY(1);
+            }
+            81% {
+                transform: translateY(0) scaleY(0.98);
+            }
+            100% {
+                transform: translateY(0) scaleY(1);
+            }
+        }
+        
+        /* Animaciones para elementos */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes floatUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }

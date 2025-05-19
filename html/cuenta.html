@@ -8,6 +8,15 @@
 </head>
 <body>
     <div class="form-container">
+        <div class="car-container">
+            <img src="/visual/images/auto-electrico.png" alt="Auto eléctrico" class="electric-car" id="carHome">
+            <div class="car-bubble">
+                <p>Presióname para regresar a casa 🏠</p>
+                <div class="bubble-arrow"></div>
+            </div>
+        </div>
+    </div>
+    <div class="form-container">
         <!-- Burbuja de mensaje Google -->
         <div class="message-bubble google-bubble">
             <img src="/visual/images/missa.png" alt="Missa" class="profile-pic">
@@ -152,6 +161,21 @@
         function hideGoogleBubble() {
             googleBubble.classList.remove('show');
         }
+
+        const car = document.getElementById('carHome');
+        const carBubble = document.querySelector('.car-bubble');
+
+        car.addEventListener('click', () => {
+            window.location.href = '/index.html';
+        });
+
+        car.addEventListener('mouseenter', () => {
+            carBubble.classList.add('show');
+        });
+
+        car.addEventListener('mouseleave', () => {
+            carBubble.classList.remove('show');
+        });
     </script>
 </body>
 </html>
