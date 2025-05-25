@@ -1,3 +1,14 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
+    url("/visual/images/background-comment.jpg") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  position: relative;
+}
+
 /* Estilos para la sección de comentarios */
 .comments-section {
   max-width: 800px;
