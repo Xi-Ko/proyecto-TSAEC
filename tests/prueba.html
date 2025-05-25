@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .pfdview {
+        display: flex;
+        display: block;
+        margin: auto;
+        align-items: center;
+        height: 100vh;
+        width: 80%;
+        border-radius: 20px;
+      }
+      #pdfview2 {
+        display: flex;
+        display: block;
+        margin: auto;
+        align-items: center;
+        height: 100vh;
+        width: 80%;
+        border-radius: 20px;
+      }
+      #pdfview3 {
+        display: flex;
+        display: block;
+        margin: auto;
+        align-items: center;
+        height: 100vh;
+        width: 80%;
+      }
+    </style>
+  </head>
+  <body>
+    <object
+      class="pfdview"
+      type="application/pdf"
+      data="/pdf/Folleto-Transporte-Sustentable.pdf"
+    ></object>
+
+    <embed
+      id="pdfview2"
+      type="application/pdf"
+      src="/pdf/Folleto-Transporte-Sustentable.pdf"
+    />
+    <iframe
+      id="pdfview3"
+      src="/pdf/Folleto-Transporte-Sustentable.pdf"
+    ></iframe>
+
+    <!-- Opción 1: Usando el visor de PDF.js directamente -->
+    <iframe
+      src="https://mozilla.github.io/pdf.js/web/viewer.html?file=URL_DE_TU_PDF"
+      width="100%"
+      height="600px"
+      style="border: none"
+    ></iframe>
+
+    <!-- Opción 2: Implementación personalizada -->
+    <div id="pdf-viewer">
+      <canvas id="pdf-render"></canvas>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+      // Cargar el PDF
+      pdfjsLib.getDocument("URL_DE_TU_PDF").promise.then(function (pdf) {
+        // Renderizar la primera página
+        pdf.getPage(1).then(function (page) {
+          const canvas = document.getElementById("pdf-render");
+          const context = canvas.getContext("2d");
+
+          const viewport = page.getViewport({ scale: 1.5 });
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+
+          page.render({
+            canvasContext: context,
+            viewport: viewport,
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

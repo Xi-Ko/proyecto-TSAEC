@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documento - TSAEC</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/src/styles/documento.css" />
+    <link rel="stylesheet" href="/src/components/header/header.css">
+  </head>
+  <body>
+    <div class="ocean-overlay"></div>
+    <div id="header-container"></div>
+    <main class="container">
+      <div class="documento-container">
+        <h2>Folleto de Transporte Sustentable</h2>
+        <div class="documento-options">
+          <div
+            class="documento-option"
+            onclick="window.location.href='/src/pages/visor-pdf.html'"
+          >
+            <i class="fas fa-file-pdf"></i>
+            <h3>Ver Documento</h3>
+            <p>Accede al folleto completo sobre transporte sustentable</p>
+            <a href="/src/pages/visor-pdf.html" class="btn">Ver PDF</a>
+          </div>
+          <div
+            class="documento-option"
+            onclick="window.location.href='/src/pages/comentarios.html'"
+          >
+            <i class="fas fa-comments"></i>
+            <h3>Ver Comentarios</h3>
+            <p>Explora las opiniones y comentarios de otros usuarios</p>
+            <a href="/src/pages/comentarios.html" class="btn"
+              >Ver Comentarios</a
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Verificar si el usuario está registrado antes de permitir comentarios
+      document
+        .querySelector(".documento-option:nth-child(2)")
+        .addEventListener("click", function (e) {
+          const isLoggedIn = localStorage.getItem("isLoggedIn");
+          if (!isLoggedIn) {
+            e.preventDefault();
+            if (
+              confirm(
+                "Para ver los comentarios necesitas estar registrado. ¿Deseas registrarte ahora?"
+              )
+            ) {
+              window.location.href = "/src/pages/cuenta.html";
+            }
+          }
+        });
+    </script>
+  </body>
+</html>

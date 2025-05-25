@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      TSAEC - Transportes Sustentables Alternativas Ecológicas para Calama
+    </title>
+    <link rel="stylesheet" href="/src/styles/style.css" />
+    <link rel="stylesheet" href="/src/components/header/header.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="ocean-overlay"></div>
+
+    <!-- Include Header -->
+    <div id="header-container"></div>
+
+    <main class="container">
+      <section class="hero-section glass-card">
+        <h1>Bienvenido a TSAEC</h1>
+        <p class="subtitle">
+          Transportes Sustentables Alternativas Ecológicas para Calama
+        </p>
+        <p class="description">
+          Transformando la movilidad de nuestra ciudad hacia un futuro más verde
+          y sustentable
+        </p>
+      </section>
+
+      <section class="features-section">
+        <div class="feature-card glass-card">
+          <i class="fas fa-leaf feature-icon"></i>
+          <h2>Movilidad Sustentable</h2>
+          <p>Descubre alternativas ecológicas para moverte por Calama</p>
+          <a href="/src/pages/explorar.html" class="cta-button"
+            >Explorar Opciones</a
+          >
+        </div>
+
+        <div class="feature-card glass-card">
+          <i class="fas fa-users feature-icon"></i>
+          <h2>Únete al Cambio</h2>
+          <p>Sé parte de la transformación hacia una ciudad más limpia</p>
+          <a href="/src/pages/documento.html" class="cta-button">Unirse</a>
+        </div>
+
+        <div class="feature-card glass-card">
+          <i class="fas fa-seedling feature-icon"></i>
+          <h2>Nuestro Proyecto</h2>
+          <p>Conoce más sobre nuestra misión y visión</p>
+          <a href="/src/pages/acerca.html" class="cta-button">Saber Más</a>
+        </div>
+
+        <div class="feature-card glass-card">
+          <i class="fas fa-people-group feature-icon"></i>
+          <h2>Equipo</h2>
+          <p>Conoce a las personas detrás de TSAEC</p>
+          <a href="/src/pages/equipo.html" class="cta-button">Ver Equipo</a>
+        </div>
+      </section>
+
+      <section class="impact-section glass-card">
+        <h2>Nuestro Impacto</h2>
+        <div class="impact-stats">
+          <div class="stat">
+            <i class="fas fa-bicycle"></i>
+            <h3>30%</h3>
+            <p>Reducción de emisiones</p>
+          </div>
+          <div class="stat">
+            <i class="fas fa-users"></i>
+            <p>+1000</p>
+            <p>Usuarios activos</p>
+          </div>
+          <div class="stat">
+            <i class="fas fa-leaf"></i>
+            <p>50%</p>
+            <p>Menos contaminación</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="glass-card">
+        <h2><i class="fas fa-user-plus"></i> Registros</h2>
+        <p id="register-counter">Próximamente: contador de registros activos</p>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="social-links">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p>&copy; 2025 TSAEC. Todos los derechos reservados.</p>
+      <!-- Contador de visitas personalizado -->
+      <div class="visit-counter glass-card">
+        <i class="fas fa-eye"></i>
+        <div class="counter-container">
+          <span class="counter-label">Visitas</span>
+          <span class="counter-number" id="visitCount">0</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/src/components/header/header.js"></script>
+    <script>
+      // Load header and initialize menu
+      fetch("/src/components/header/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header-container").innerHTML = data;
+          // Initialize header functionality after loading
+          const menuToggle = document.querySelector(".menu-toggle");
+          const navLinks = document.querySelector(".nav-links");
+          const header = document.querySelector(".header-wave");
+
+          // Toggle menu
+          menuToggle.addEventListener("click", function () {
+            menuToggle.classList.toggle("active");
+            navLinks.classList.toggle("active");
+          });
+
+          // Close menu when clicking outside
+          document.addEventListener("click", function (event) {
+            const isClickInside = header.contains(event.target);
+            if (!isClickInside && navLinks.classList.contains("active")) {
+              menuToggle.classList.remove("active");
+              navLinks.classList.remove("active");
+            }
+          });
+
+          // Close menu when clicking a link
+          navLinks.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", function () {
+              menuToggle.classList.remove("active");
+              navLinks.classList.remove("active");
+            });
+          });
+
+          // Add active class to current page link
+          const currentPage = window.location.pathname;
+          navLinks.querySelectorAll("a").forEach((link) => {
+            if (link.getAttribute("href") === currentPage) {
+              link.classList.add("active");
+            }
+          });
+        });
+
+      // Contador de visitas
+      const counterContainer = document.querySelector("#visitCount");
+      let visitCount = localStorage.getItem("page_view");
+
+      if (visitCount) {
+        visitCount = Number(visitCount) + 1;
+        localStorage.setItem("page_view", visitCount);
+      } else {
+        visitCount = 1;
+        localStorage.setItem("page_view", 1);
+      }
+      counterContainer.innerHTML = visitCount;
+    </script>
+  </body>
+</html>

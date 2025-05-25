@@ -1,0 +1,280 @@
+/* --- Rediseño moderno para página de comentarios TSAEC --- */
+:root {
+  --primary-color: #2ecc71;
+  --secondary-color: #27ae60;
+  --accent-color: #3498db;
+  --text-color: #2c3e50;
+  --background-color: #ecf0f1;
+  --glass-bg: rgba(255, 255, 255, 0.13);
+  --glass-border: rgba(255, 255, 255, 0.18);
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: url("/src/assets/images/background-comment.jpg") no-repeat center
+    center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  color: var(--text-color);
+  margin: 0;
+}
+.ocean-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/src/assets/images/background-comment.jpg");
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: -1;
+}
+.comments-main {
+  max-width: 900px;
+  margin: 120px auto 0 auto;
+  padding: 2rem 1rem 3rem 1rem;
+}
+.comments-hero {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.comments-hero h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+.comments-hero .subtitle {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+.comment-form-section {
+  background: var(--glass-bg);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.13);
+  border: 1.5px solid var(--glass-border);
+  margin-bottom: 2.5rem;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+}
+.comment-form h2 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.form-group {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+.form-group label {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.7rem 1rem;
+  border: 1.5px solid var(--glass-border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--text-color);
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  transition: border 0.2s, background 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.25);
+}
+.btn-submit {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+.btn-submit:hover {
+  background: var(--secondary-color);
+}
+.comments-list-section {
+  margin-bottom: 2.5rem;
+}
+.comments-list-section h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.comment-card {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 1.2rem 1.5rem;
+  border: 1.5px solid var(--glass-border);
+  color: var(--text-color);
+}
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.comment-name {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+.comment-category {
+  font-size: 0.95rem;
+  color: var(--accent-color);
+  background: rgba(46, 204, 113, 0.08);
+  border-radius: 8px;
+  padding: 0.2rem 0.7rem;
+  margin-left: 0.5rem;
+}
+.comment-content {
+  color: var(--text-color);
+  font-size: 1.08rem;
+}
+.no-comments {
+  color: #fff;
+  text-align: center;
+  font-style: italic;
+}
+.faq-section {
+  background: var(--glass-bg);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.13);
+  border: 1.5px solid var(--glass-border);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+}
+.faq-section h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.2rem;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.faq-item {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  border: 1.5px solid var(--glass-border);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.faq-question {
+  padding: 1.1rem 1.5rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.08rem;
+  background: none;
+  transition: background 0.2s;
+}
+.faq-item.active .faq-question {
+  background: rgba(46, 204, 113, 0.08);
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  background: none;
+  color: #333;
+  font-size: 1rem;
+  padding: 0 1.5rem;
+  transition: max-height 0.3s, padding 0.3s;
+}
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+}
+.main-footer {
+  background: rgba(0, 0, 0, 0.22);
+  padding: 2rem;
+  text-align: center;
+  margin-top: 4rem;
+  z-index: 20;
+  position: relative;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.08);
+}
+.social-links {
+  margin-bottom: 1rem;
+}
+.social-links a {
+  color: #fff;
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  transition: color 0.3s;
+}
+.social-links a:hover {
+  color: var(--primary-color);
+}
+.main-footer p {
+  color: #fff;
+  opacity: 0.85;
+}
+@media (max-width: 700px) {
+  .comments-main {
+    padding: 1rem 0.2rem 2rem 0.2rem;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .comment-form-section,
+  .faq-section {
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+  }
+}
+.comment-support {
+  margin-top: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.support-btn {
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s, color 0.2s;
+}
+.support-btn:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+.comment-card.most-supported {
+  border: 2.5px solid var(--primary-color);
+  box-shadow: 0 0 16px 2px rgba(46, 204, 113, 0.18);
+  background: rgba(46, 204, 113, 0.1);
+}

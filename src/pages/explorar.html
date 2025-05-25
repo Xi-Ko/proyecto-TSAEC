@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explorar - TSAEC</title>
+    <link rel="stylesheet" href="/src/styles/explorar.css" />
+    <link rel="stylesheet" href="/src/components/header/header.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="ocean-overlay"></div>
+
+    <!-- Include Header -->
+    <div id="header-container"></div>
+
+    <main class="container">
+      <section class="hero-section glass-card">
+        <h1>
+          <i class="fas fa-globe-americas"></i> Explora el Transporte
+          Sustentable
+        </h1>
+        <p class="subtitle">
+          Descubre cómo las alternativas ecológicas están transformando Calama y
+          el mundo
+        </p>
+      </section>
+      <section class="features-section">
+        <div class="feature-card glass-card">
+          <i class="fas fa-bicycle feature-icon"></i>
+          <h2>Bicicletas y Ciclovías</h2>
+          <p>
+            Fomentan la movilidad activa, reduciendo la huella de carbono y
+            mejorando la salud.
+          </p>
+        </div>
+        <div class="feature-card glass-card">
+          <i class="fas fa-bus feature-icon"></i>
+          <h2>Transporte Público Eléctrico</h2>
+          <p>
+            Menos emisiones y mayor eficiencia energética para un futuro más
+            limpio.
+          </p>
+        </div>
+        <div class="feature-card glass-card">
+          <i class="fas fa-car-side feature-icon"></i>
+          <h2>Vehículos Compartidos</h2>
+          <p>Reducen la congestión y optimizan el uso de recursos urbanos.</p>
+        </div>
+      </section>
+      <section class="glass-card">
+        <h2 class="subtitle">
+          <i class="fas fa-heart"></i> Beneficios del Transporte Sustentable
+        </h2>
+        <div class="features-section">
+          <div class="feature-card glass-card">
+            <i class="fas fa-heartbeat feature-icon"></i>
+            <h3>Mejora la Salud</h3>
+            <p>
+              Reduce la contaminación del aire y promueve la actividad física,
+              mejorando la salud respiratoria y cardiovascular.
+            </p>
+          </div>
+          <div class="feature-card glass-card">
+            <i class="fas fa-leaf feature-icon"></i>
+            <h3>Reduce Emisiones</h3>
+            <p>
+              Disminuye significativamente las emisiones de gases de efecto
+              invernadero, ayudando al planeta.
+            </p>
+          </div>
+          <div class="feature-card glass-card">
+            <i class="fas fa-piggy-bank feature-icon"></i>
+            <h3>Ahorro Económico</h3>
+            <p>
+              Reduce gastos en combustible, mantenimiento y estacionamiento,
+              generando ahorros a largo plazo.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="glass-card">
+        <h2 class="subtitle">
+          <i class="fas fa-balance-scale"></i> Factores que contribuyen a la
+          reducción de CO₂
+        </h2>
+        <div class="features-section">
+          <div class="feature-card glass-card">
+            <i class="fas fa-city feature-icon"></i>
+            <h3>Alta densidad urbana</h3>
+            <p>
+              Facilita el transporte público y reduce el uso de automóviles.
+            </p>
+          </div>
+          <div class="feature-card glass-card">
+            <i class="fas fa-road feature-icon"></i>
+            <h3>Infraestructura sustentable</h3>
+            <p>Carriles bici, transporte eléctrico y zonas peatonales.</p>
+          </div>
+          <div class="feature-card glass-card">
+            <i class="fas fa-bolt feature-icon"></i>
+            <h3>Energías renovables</h3>
+            <p>Uso de fuentes limpias para la generación de electricidad.</p>
+          </div>
+        </div>
+      </section>
+      <section class="glass-card">
+        <h2 class="subtitle">
+          <i class="fas fa-chart-bar"></i> Impacto y Estadísticas
+        </h2>
+        <div class="impact-stats">
+          <div class="stat">
+            <i class="fas fa-bus"></i>
+            <h3>30%</h3>
+            <p>Reducción de emisiones de CO₂ al usar transporte público</p>
+          </div>
+          <div class="stat">
+            <i class="fas fa-bicycle"></i>
+            <h3>70%</h3>
+            <p>Menos espacio urbano requerido por bicicletas vs. automóviles</p>
+          </div>
+          <div class="stat">
+            <i class="fas fa-car"></i>
+            <h3>80%</h3>
+            <p>Reducción de costos de mantenimiento en vehículos eléctricos</p>
+          </div>
+          <div class="stat">
+            <i class="fas fa-users"></i>
+            <h3>5x</h3>
+            <p>Mayor eficiencia energética del transporte compartido</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="social-links">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p>&copy; 2025 TSAEC. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/src/components/header/header.js"></script>
+    <script>
+      // Load header and initialize menu
+      fetch("/src/components/header/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header-container").innerHTML = data;
+          // Initialize header functionality after loading
+          const menuToggle = document.querySelector(".menu-toggle");
+          const navLinks = document.querySelector(".nav-links");
+          const header = document.querySelector(".header-wave");
+
+          // Toggle menu
+          menuToggle.addEventListener("click", function () {
+            menuToggle.classList.toggle("active");
+            navLinks.classList.toggle("active");
+          });
+
+          // Close menu when clicking outside
+          document.addEventListener("click", function (event) {
+            const isClickInside = header.contains(event.target);
+            if (!isClickInside && navLinks.classList.contains("active")) {
+              menuToggle.classList.remove("active");
+              navLinks.classList.remove("active");
+            }
+          });
+
+          // Close menu when clicking a link
+          navLinks.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", function () {
+              menuToggle.classList.remove("active");
+              navLinks.classList.remove("active");
+            });
+          });
+
+          // Add active class to current page link
+          const currentPage = window.location.pathname;
+          navLinks.querySelectorAll("a").forEach((link) => {
+            if (link.getAttribute("href") === currentPage) {
+              link.classList.add("active");
+            }
+          });
+        });
+    </script>
+  </body>
+</html>

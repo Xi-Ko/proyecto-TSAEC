@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comentarios - TSAEC</title>
+    <link rel="stylesheet" href="/src/styles/comentarios.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/src/components/header/header.css" />
+  </head>
+  <body>
+    <div class="ocean-overlay"></div>
+    <div id="header-container"></div>
+    <main class="comments-main">
+      <section class="comments-hero">
+        <h1><i class="fas fa-comments"></i> Comentarios y Sugerencias</h1>
+        <p class="subtitle">
+          Tu opinión es importante para mejorar la movilidad en Calama
+        </p>
+      </section>
+      <section class="comment-form-section">
+        <form id="commentForm" class="comment-form">
+          <h2>Envíanos tu comentario</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="category">Categoría</label>
+              <select id="category" name="category" required>
+                <option value="">Selecciona una categoría</option>
+                <option value="sugerencia">Sugerencia</option>
+                <option value="reporte">Reporte de problema</option>
+                <option value="felicitacion">Felicitación</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="comment">Comentario</label>
+              <textarea
+                id="comment"
+                name="comment"
+                rows="3"
+                required
+              ></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn-submit">
+            <i class="fas fa-paper-plane"></i> Enviar comentario
+          </button>
+        </form>
+      </section>
+      <section class="comments-list-section">
+        <h2><i class="fas fa-list"></i> Comentarios recientes</h2>
+        <div class="comments-list" id="commentsList">
+          <!-- Comentarios se insertan aquí -->
+        </div>
+      </section>
+      <section class="faq-section">
+        <h2><i class="fas fa-question-circle"></i> Preguntas frecuentes</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question">
+              ¿Cómo puedo reportar un problema en las ciclovías?
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              Puedes reportar problemas en las ciclovías a través de nuestro
+              formulario de comentarios, seleccionando la categoría "Reporte de
+              problema". También puedes contactarnos directamente a través de
+              nuestras redes sociales.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              ¿Cuánto tiempo tardan en responder los comentarios?
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              Nos esforzamos por responder todos los comentarios en un plazo de
+              24-48 horas hábiles. Los reportes de problemas son atendidos con
+              prioridad.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              ¿Puedo sugerir nuevas rutas de ciclovías?
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              ¡Por supuesto! Las sugerencias de nuevas rutas son muy
+              bienvenidas. Puedes enviar tu propuesta a través del formulario de
+              comentarios, incluyendo detalles sobre la ubicación y el motivo de
+              tu sugerencia.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="main-footer">
+      <div class="social-links">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p>&copy; 2025 TSAEC. Todos los derechos reservados.</p>
+    </footer>
+    <script src="/src/components/header/header.js"></script>
+    <script>
+      // Header dinámico
+      fetch("/src/components/header/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header-container").innerHTML = data;
+        });
+      // Comentarios en localStorage (demo)
+      const commentsList = document.getElementById("commentsList");
+      const commentForm = document.getElementById("commentForm");
+      function renderComments() {
+        const comments = JSON.parse(
+          localStorage.getItem("tsaec_comments") || "[]"
+        );
+        // Encuentra el índice del comentario con más apoyos
+        let maxSupport = -1,
+          maxIndex = -1;
+        comments.forEach((c, i) => {
+          if ((c.supports || 0) > maxSupport) {
+            maxSupport = c.supports || 0;
+            maxIndex = i;
+          }
+        });
+        commentsList.innerHTML = comments.length
+          ? comments
+              .map(
+                (c, i) =>
+                  `<div class='comment-card${
+                    i === maxIndex && maxSupport > 0 ? " most-supported" : ""
+                  }' data-index='${i}'>
+                    <div class='comment-header'>
+                      <span class='comment-name'><i class='fas fa-user'></i> ${
+                        c.name
+                      }</span>
+                      <span class='comment-category'>[${c.category}]</span>
+                    </div>
+                    <div class='comment-content'>${c.comment}</div>
+                    <div class='comment-support'>
+                      <button class='support-btn' data-index='${i}'>
+                        <i class='fas fa-thumbs-up'></i> <span class='support-count'>${
+                          c.supports || 0
+                        }</span> Apoyos
+                      </button>
+                    </div>
+                  </div>`
+              )
+              .join("")
+          : "<p class='no-comments'>No hay comentarios aún.</p>";
+        // Asigna eventos a los botones de apoyo
+        document.querySelectorAll(".support-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const idx = parseInt(this.getAttribute("data-index"));
+            const comments = JSON.parse(
+              localStorage.getItem("tsaec_comments") || "[]"
+            );
+            comments[idx].supports = (comments[idx].supports || 0) + 1;
+            localStorage.setItem("tsaec_comments", JSON.stringify(comments));
+            renderComments();
+          });
+        });
+      }
+      commentForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const name = commentForm.name.value.trim();
+        const email = commentForm.email.value.trim();
+        const category = commentForm.category.value;
+        const comment = commentForm.comment.value.trim();
+        if (!name || !email || !category || !comment) return;
+        const comments = JSON.parse(
+          localStorage.getItem("tsaec_comments") || "[]"
+        );
+        comments.unshift({
+          name,
+          email,
+          category,
+          comment,
+          date: new Date().toISOString(),
+        });
+        localStorage.setItem("tsaec_comments", JSON.stringify(comments));
+        commentForm.reset();
+        renderComments();
+      });
+      renderComments();
+      // FAQ acordeón
+      document.querySelectorAll(".faq-question").forEach((q) => {
+        q.addEventListener("click", function () {
+          this.parentElement.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
+</html>
