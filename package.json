@@ -3,17 +3,25 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "minify:css": "cleancss -o dist/bundle.min.css src/styles/*.css",
+    "minify:js": "terser src/js/comentarios.js src/js/pdfjs-config.js -o dist/bundle.min.js -c -m"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "clean-css-cli": "^5.6.3",
     "gsap": "^3.13.0",
     "postcss": "^8.5.3",
     "sass": "^1.89.0",
     "tailwindcss": "^4.1.7",
+    "terser": "^5.39.2",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.8.2",
+    "prisma": "^6.8.2"
   }
 }
